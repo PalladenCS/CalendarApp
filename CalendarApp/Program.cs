@@ -23,7 +23,7 @@ namespace CalendarApp
                 } 
                 else if (input == "2")
                 {
-                    //view events
+                    io.ViewEvents(schedule);
                 } 
                 else if (input == "0")
                 {

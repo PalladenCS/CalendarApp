@@ -9,5 +9,10 @@ namespace CalendarApp
         {
             events.Add(newEvent);
         }
+
+        public List<Event> GetEvents()
+        {
+            return events;
+        }
     }
 }

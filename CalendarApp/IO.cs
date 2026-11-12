@@ -26,13 +26,25 @@ namespace CalendarApp
             Console.Write("Description: ");
             string description = Console.ReadLine() ?? "";
 
-            Console.Write("Start (example: 2026-11-12 18:00): ");
+            Console.Write("Start (MM/DD/YYY HH:MM): ");
             DateTime startTime = DateTime.Parse(Console.ReadLine() ?? "");
 
-            Console.Write("End (example: 2026-11-12 19:00): ");
+            Console.Write("End (MM/DD/YYY HH:MM): ");
             DateTime endTime = DateTime.Parse(Console.ReadLine() ?? "");
 
             return new Event(title, description, startTime, endTime);
+        }
+
+        public void ViewEvents(Schedule schedule)
+        {
+            foreach (Event calendarEvent in schedule.GetEvents())
+            {
+                Console.WriteLine($"Title: {calendarEvent.Title}");
+                Console.WriteLine($"Description: {calendarEvent.Description}");
+                Console.WriteLine($"Start: {calendarEvent.StartTime}");
+                Console.WriteLine($"End: {calendarEvent.EndTime}");
+                Console.WriteLine();
+            }
         }
     }
 }
