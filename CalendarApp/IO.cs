@@ -4,34 +4,35 @@ namespace CalendarApp
 {
     internal class IO
     {
+        public void Menu()
+        {
+            Console.WriteLine("1: New Event");
+            Console.WriteLine("2: View Events");
+            Console.WriteLine("3:");
+            Console.WriteLine("0: Exit");
+        }
+
         public String ReadInput()
         {
-            String input = Console.ReadLine() ?? "";
-            if(input == "1")
-            {
-                //add event
-            } 
-            else if (input == "2")
-            {
-                //view events
-            } 
-            else if (input == "0")
-            {
-                Console.WriteLine("Code 0, exiting...");
-            }
-            else
-            {
-                Console.WriteLine("Invalid input, try again.");
-            }
-            return input;
+            Console.Write("Input: ");
+            return Console.ReadLine() ?? "";
         }
 
-        public void WriteOutput(string title)
+        public Event NewEventInput()
         {
-            Console.WriteLine($"You entered: {title}");
-        }
+            Console.Write("Event title: ");
+            string title = Console.ReadLine() ?? "";
 
-        //Console.Write("Event title: ");
-        //return Console.ReadLine() ?? "";
+            Console.Write("Description: ");
+            string description = Console.ReadLine() ?? "";
+
+            Console.Write("Start (example: 2026-11-12 18:00): ");
+            DateTime startTime = DateTime.Parse(Console.ReadLine() ?? "");
+
+            Console.Write("End (example: 2026-11-12 19:00): ");
+            DateTime endTime = DateTime.Parse(Console.ReadLine() ?? "");
+
+            return new Event(title, description, startTime, endTime);
+        }
     }
 }
